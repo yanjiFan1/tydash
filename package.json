@@ -1,0 +1,41 @@
+{
+  "name": "tydash",
+  "version": "1.0.1",
+  "author": "TY",
+  "description": "A powerful tool library for JavaScript developers.",
+  "keywords": [
+    "tool",
+    "library",
+    "javascript"
+  ],
+  "homepage": "https://github.com/yanjiFan1/tydash#readme",
+  "bugs": {
+    "url": "https://github.com/yanjiFan1/tydash/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanjiFan1/tydash.git"
+  },
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/tydash.cjs.js",
+  "module": "dist/tydash.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/tydash.es.js",
+      "require": "./dist/tydash.cjs.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "release": "pnpm build & pnpm publish --no-git-checks"
+  },
+  "devDependencies": {
+    "vite": "^5.2.11"
+  }
+}
