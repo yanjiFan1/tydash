@@ -2,7 +2,7 @@
  * @Author: xiaofan.zhao fanshaogithub@126.com
  * @Date: 2024-05-11 23:58:53
  * @LastEditors: xiaofan.zhao fanshaogithub@126.com
- * @LastEditTime: 2024-05-12 00:44:16
+ * @LastEditTime: 2024-05-25 17:58:04
  * @Description: 
  * 判断数组中对象的属性是否满足a的值一致，则属性 b 的值也必须一致；反之亦然
 
@@ -38,22 +38,19 @@ export default function checkConsistency(arr, field1 = 'a', field2 = 'b') {
         const bValues = aToBValues.get(a);
 
         // 检查当前b值是否已在集合中，或者集合中是否包含undefined
-        if ((bValues.has(b) && b === undefined) || (!bValues.has(b) && b !== undefined)) {
+        if (!bValues.has(b)) {
             // 如果集合中已有b值（且为undefined），或者集合中没有b值但b不是undefined，则不一致
             return false;
         }
 
-        // 如果b不是undefined，则将其添加到集合中
-        if (b !== undefined) {
-            bValues.add(b);
-        }
+        bValues.add(b);
       } else {
         // 如果a值不存在于映射中，则创建新的映射项
         const newBValues = new Set();
-        if (b !== undefined) {
-          newBValues.add(b); // 只添加非undefined的b值
+        newBValues.add(b);
+        if (a !== undefined) {
+          aToBValues.set(a, newBValues);
         }
-        aToBValues.set(a, newBValues);
       }
     }
 
